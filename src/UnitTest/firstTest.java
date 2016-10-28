@@ -1,0 +1,14 @@
+package UnitTest;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class firstTest {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}
