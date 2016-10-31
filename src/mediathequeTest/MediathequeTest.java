@@ -1,10 +1,10 @@
 package mediathequeTest;
 
 import mediatheque.Mediatheque;
-import org.junit.Before;
-import org.junit.Test;
 
 import static org.junit.Assert.*;
+
+import org.junit.*;
 
 /**
  * Created by Robinson on 31/10/2016.
@@ -19,6 +19,9 @@ public class MediathequeTest {
 
     }
 
-
+    @Test
+    public void constructorTest(){
+        assertNotNull(mediatheque);
+    }
 
 }
