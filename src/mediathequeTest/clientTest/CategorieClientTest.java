@@ -14,35 +14,42 @@ public class CategorieClientTest {
     CategorieClient categorieClient;
     @Before
     public void setUp() throws Exception {
-    }
-
-    @Test
-    public void modifierNom() throws Exception {
+        categorieClient = new CategorieClient("categorieName", 2, 250, 0.5, 0.5, true);
 
     }
 
     @Test
-    public void modifierMax() throws Exception {
+    public void testModifierNom() {
+        categorieClient.modifierNom("discounted");
+        assertEquals("discounted", categorieClient.getNom());
+
+        categorieClient.modifierNom(null);
+        assertNull(categorieClient.getNom());
+    }
+
+    @Test
+    public void testModifierMax() {
+        categorieClient.modifierMax(4);
+        assertEquals(4, categorieClient.getNbEmpruntMax());
+    }
+
+    @Test
+    public void testModifierCotisation() {
 
     }
 
     @Test
-    public void modifierCotisation() throws Exception {
+    public void testModifierCoefDuree() {
 
     }
 
     @Test
-    public void modifierCoefDuree() throws Exception {
+    public void testModifierCoefTarif() {
 
     }
 
     @Test
-    public void modifierCoefTarif() throws Exception {
-
-    }
-
-    @Test
-    public void modifierCodeReducActif() throws Exception {
+    public void testModifierCodeReducActif() {
 
     }
 
@@ -67,7 +74,7 @@ public class CategorieClientTest {
     }
 
     @Test
-    public void toString() throws Exception {
+    public void testToString() throws Exception {
 
     }
 
@@ -82,7 +89,7 @@ public class CategorieClientTest {
     }
 
     @Test
-    public void hashCode() throws Exception {
+    public void testHashCode() throws Exception {
 
     }
 

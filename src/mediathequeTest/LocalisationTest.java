@@ -67,11 +67,14 @@ public class LocalisationTest {
     public void testEquals() {
         assertTrue(localisation.equals(localisation));
 
+
+
         //If object diff of Localiastion
         assertFalse(localisation.equals(1));
         assertFalse(localisation.equals(1.1));
         assertFalse(localisation.equals("test"));
         assertFalse(localisation.equals(null));
+        assertFalse(localisation.equals(new Object()));
 
         //is salle or/and rayon dif of rayon localisation or salle localisation
         Localisation loc2 = new Localisation("salle1", "rayon1");
@@ -88,15 +91,23 @@ public class LocalisationTest {
         //if salle or/and rayon null
         loc2.setSalle(null);
         assertFalse(localisation.equals(loc2));
+
         loc2.setRayon(null);
         assertFalse(localisation.equals(loc2));
-        loc2.setSalle("salleTest");
+        assertFalse(loc2.equals(localisation));
+
+        localisation.setRayon(null);
         assertFalse(localisation.equals(loc2));
+        assertFalse(loc2.equals(localisation));
+
+        loc2.setSalle("salleTest");
+        assertFalse(loc2.equals(localisation));
 
         // if 2 object have salle and rayon null
         loc2.setSalle(null);
         localisation.setRayon(null);
         localisation.setSalle(null);
         assertTrue(localisation.equals(loc2));
+
     }
 }
