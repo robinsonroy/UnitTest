@@ -16,6 +16,11 @@ import mediatheque.document.Audio;
 public class AudioTest extends TestCase{
 	
 	private Audio audiotest;
+	private Audio audiotestbis;
+	
+	/***
+	 * Set up des tests
+	 */
 	
 	@Before
 	public void setUp (){
@@ -24,9 +29,15 @@ public class AudioTest extends TestCase{
 		Localisation localisationNotNull = new Localisation("test", "test");
 		try {
 			audiotest = new Audio(stringNotNull, localisationNotNull, stringNotNull, stringNotNull, stringNotNull, genreNotNull, stringNotNull);
+			audiotestbis = new Audio(stringNotNull, localisationNotNull, stringNotNull, stringNotNull, stringNotNull, genreNotNull, stringNotNull);
+
 		} catch (OperationImpossible e) {} 
 		  catch (InvariantBroken e) {}
 	}
+	
+	/***
+	 * Teste la levéé d'exception si variables nulles
+	 */
 	
 	@Test(expected=OperationImpossible.class)
 	public void testNullImplementation() {
@@ -49,14 +60,22 @@ public class AudioTest extends TestCase{
 		  catch (InvariantBroken e) {}
 	}
 	
+	/***
+	 * Teste l'instanciation de la classe
+	 */
+	
 	@Test
 	public void testNotNullInstance(){
 		assertNotNull("Instance n'a pas été créée", audiotest);
 		
 	}
 	
+	/***
+	 * Teste l'initialisation des variables
+	 */
+	
 	@Test
-	public void testInstanciation(){
+	public void testInstanciationVariables(){
 		assertEquals("Problème d'instanciation des variables String", "blabla", audiotest.getAnnee());
 		assertEquals("Problème d'instanciation des variables String", "blabla", audiotest.getAuteur());
 		assertEquals("Problème d'instanciation des variables String", "blabla", audiotest.getCode());
@@ -66,14 +85,51 @@ public class AudioTest extends TestCase{
 		assertEquals("L'emprunt n'a pas été initialisé à zéro", 0, audiotest.getNbEmprunts());
 	}
 	
+	/***
+	 * Teste la levée d'exception d'un document emprunté et non empruntable
+	 */
+	
+	@Test(expected=OperationImpossible.class)
+	public void testNonEmpruntableInstanciation(){
+		try{
+		    audiotest.emprunter();
+		    fail("Empruntable à la création");
+		} catch (OperationImpossible exception){}
+		 catch (InvariantBroken exception){}
+	}
+		
+	
+	
+	/***
+	 * Teste de l'emprunnt des fichiers vérification des fonctions getNbEmprunts, getStat, metEmpruntable et emprunter
+	 * @throws OperationImpossible
+	 * @throws InvariantBroken
+	 */
+	
 	@Test
-	public void testEmprunter(){
-		try {
-			audiotest.emprunter();
-			assertEquals("Problème incrémentation nombre d'emprunts", 1, audiotest.getNbEmprunts());
-		} catch (InvariantBroken e) {} 
-		catch (OperationImpossible e) {}
+	public void testEmprunter() throws OperationImpossible, InvariantBroken{
+		
+		assertEquals(false, audiotest.estEmpruntable());
+		audiotest.metEmpruntable();
+		audiotestbis.metEmpruntable();
+		assertEquals(true, audiotest.estEmpruntable());
+		audiotest.emprunter();
+		audiotestbis.emprunter();
+		assertEquals(1, audiotest.getNbEmprunts());
+		assertEquals(1, audiotestbis.getNbEmprunts());
+		assertEquals(2, Audio.getStat());
 		
 	}
+	
+	@Test
+	public void testMettreConsultable() throws OperationImpossible, InvariantBroken{
+		assertEquals(false, audiotest.estEmpruntable());
+		audiotest.metEmpruntable();
+		assertEquals(true, audiotest.estEmpruntable());
+		audiotest.metConsultable();
+		assertEquals(false, audiotest.estEmpruntable());
+		
+	}
+
 
 }
