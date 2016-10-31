@@ -66,12 +66,6 @@ public class LocalisationTest {
     @Test
     public void testEquals() {
         assertTrue(localisation.equals(localisation));
-        
-        Object obj = new Object();
-        Localisation loctest = new Localisation("test","test");
-        assertFalse(localisation.equals(obj));
-        obj = (Localisation)loctest;
-
 
 
         //If object diff of Localiastion
