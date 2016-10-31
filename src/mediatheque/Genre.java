@@ -25,7 +25,7 @@ public class Genre implements Serializable{
          */
         public Genre(String n){
                 nom = n;
-                nbEmprunts=1;
+                nbEmprunts=0;
         }
 
         /**
@@ -33,7 +33,7 @@ public class Genre implements Serializable{
          * ce genre a ete emprunte
          */
         public void emprunter(){
-               // nbEmprunts++;
+               nbEmprunts++;
         }
 
         /**
@@ -57,7 +57,7 @@ public class Genre implements Serializable{
          * modifier change le nom du genre il est accessible a la mediatheque seulement
          * @param nouveau nouveau nom
          */
-        public void modifier(String nouveau){
+        protected void modifier(String nouveau){
                 nom = nouveau;
         }
 

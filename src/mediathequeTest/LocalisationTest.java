@@ -67,7 +67,7 @@ public class LocalisationTest {
     public void testEquals() {
         assertTrue(localisation.equals(localisation));
 
-        //If object diff of Localiasrion
+        //If object diff of Localiastion
         assertFalse(localisation.equals(1));
         assertFalse(localisation.equals(1.1));
         assertFalse(localisation.equals("test"));
@@ -98,7 +98,5 @@ public class LocalisationTest {
         localisation.setRayon(null);
         localisation.setSalle(null);
         assertTrue(localisation.equals(loc2));
-
-
     }
 }
