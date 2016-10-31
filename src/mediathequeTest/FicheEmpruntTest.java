@@ -2,6 +2,7 @@ package mediathequeTest;
 
 import static org.junit.Assert.*;
 
+import mediatheque.FicheEmprunt;
 import org.junit.Test;
 
 public class FicheEmpruntTest {

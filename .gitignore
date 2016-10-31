@@ -65,6 +65,8 @@ local.properties
 # User-specific stuff:
 .idea/workspace.xml
 .idea/tasks.xml
+.idea
+UnitTestProject.iml
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
