@@ -67,7 +67,7 @@ public class CategorieClientTest {
     }
 
     @Test
-    public void toString() throws Exception {
+    public void testToString() throws Exception {
 
     }
 
@@ -82,7 +82,7 @@ public class CategorieClientTest {
     }
 
     @Test
-    public void hashCode() throws Exception {
+    public void testHashCode() throws Exception {
 
     }
 

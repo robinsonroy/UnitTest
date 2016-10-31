@@ -1,8 +1,10 @@
 package test;
 
+
 import static org.junit.Assert.*;
 import junit.framework.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,6 +14,7 @@ import mediatheque.Genre;
 import mediatheque.Localisation;
 import mediatheque.OperationImpossible;
 import mediatheque.document.Audio;
+
 
 public class AudioTest extends TestCase{
 	
@@ -33,6 +36,13 @@ public class AudioTest extends TestCase{
 
 		} catch (OperationImpossible e) {} 
 		  catch (InvariantBroken e) {}
+	}
+	
+	@After
+	public void tearDown() throws Exception{
+		super.tearDown();
+		audiotest=null;
+		audiotestbis=null;
 	}
 	
 	/***
@@ -115,11 +125,18 @@ public class AudioTest extends TestCase{
 		assertEquals(true, audiotest.estEmpruntable());
 		audiotest.emprunter();
 		audiotestbis.emprunter();
+		assertEquals(true, audiotest.estEmprunte());
 		assertEquals(1, audiotest.getNbEmprunts());
 		assertEquals(1, audiotestbis.getNbEmprunts());
-		assertEquals(2, Audio.getStat());
+		assertEquals(3, Audio.getStat());
 		
 	}
+	
+	/***
+	 * Teste la fonction metConsultable
+	 * @throws OperationImpossible
+	 * @throws InvariantBroken
+	 */
 	
 	@Test
 	public void testMettreConsultable() throws OperationImpossible, InvariantBroken{
@@ -130,6 +147,25 @@ public class AudioTest extends TestCase{
 		assertEquals(false, audiotest.estEmpruntable());
 		
 	}
+	
+	@Test
+	public void testInvariant() throws OperationImpossible, InvariantBroken{
+		audiotest.metEmpruntable();
+		assertEquals(true, audiotest.estEmpruntable());
+		audiotest.emprunter();
+		assertEquals(true, audiotest.estEmprunte());
+		
+		}
+	
+	@Test
+	public void testEquals(){
+		Object objNotNull = new Object();
+		Object objNull = null;
+		assertFalse(audiotest.equals(objNull));
+		objNotNull = (Audio) audiotest;
+		assertTrue(audiotest.equals(objNotNull));
+	}
+	
 
 
 }
