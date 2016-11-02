@@ -19,7 +19,6 @@ public class CategorieClientTest {
     @Before
     public void setUp() throws Exception {
         categorieClient = new CategorieClient("categorieName", 2, 250, 0.5, 0.5, true);
-
     }
 
     @Test

@@ -1,5 +1,6 @@
 package mediathequeTest.clientTest;
 
+import mediatheque.OperationImpossible;
 import mediatheque.client.CategorieClient;
 import mediatheque.client.Client;
 import org.junit.Before;
@@ -26,13 +27,20 @@ public class ClientTest {
         c1 = new Client("Dupont", "Michel");
 
         cat = new CategorieClient("Discounted", 2, 25, 0.5, 0.5, false);
-        //c2 = new Client("Damien", "Francois", "QG 75015 Paris", cat);
+
+        try{
+            c2 = new Client("Damien", "Francois", "QG 75015 Paris", cat);
+            c3 = new Client("Debouze", "Jamel", "RG 75006 Paris", cat, 76123);
+        }catch (OperationImpossible e){
+            fail("exeption OperationImpossible catch");
+        }
 
 
     }
 
     @Test
     public void getNom() throws Exception {
+
 
     }
 
