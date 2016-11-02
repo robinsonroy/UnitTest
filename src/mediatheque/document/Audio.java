@@ -107,6 +107,7 @@ public class Audio extends Document {
         public double tarifEmprunt() {
                 return TARIF;
         }
+
         @Override
         public String toString() {
                 return "[Audio] " + super.toString()

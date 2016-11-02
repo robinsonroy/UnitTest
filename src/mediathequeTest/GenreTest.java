@@ -2,6 +2,7 @@ package mediathequeTest;
 
 import static org.junit.Assert.*;
 
+import com.sun.tools.javac.jvm.Gen;
 import mediatheque.Genre;
 import org.junit.Before;
 import org.junit.Test;
@@ -64,17 +65,24 @@ public class GenreTest {
 		assertFalse(genre.equals(1.1));
 		assertFalse(genre.equals("test"));
 		assertFalse(genre.equals(null));
+		assertFalse(genre.equals(new Object()));
 
 		//is name dif on the two object
 		Genre genre2 = new Genre("Cinema");
+		assertFalse(genre.equals(genre2));
+		genre.emprunter();
 		assertFalse(genre.equals(genre2));
 		Genre genre3 = new Genre(null);
 		assertFalse(genre.equals(genre3));
 		Genre genre4 = new Genre(null);
 		assertTrue(genre3.equals(genre4));
 
-		Genre genre5 = new Genre("Action");
-		assertTrue(genre.equals(genre5));
+		assertFalse(genre4.equals(genre2));
+
+		Genre g5 = new Genre("Action");
+		g5.emprunter();
+		assertTrue(genre.equals(g5));
+
 	}
 
 	@Test

@@ -67,6 +67,7 @@ public class Client implements Serializable {
          * Code de reduction
          */
         private int codeReduction = 0;
+
         /**
          * Date de l'inscription : la verification des droits
          * a la reduction est annuelle.
