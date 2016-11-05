@@ -40,9 +40,6 @@ public class AudioTest extends TestCase{
 	
 	@After
 	public void tearDown() throws Exception{
-		super.tearDown();
-		audiotest=null;
-		audiotestbis=null;
 	}
 	
 	/***
@@ -128,7 +125,7 @@ public class AudioTest extends TestCase{
 		assertEquals(true, audiotest.estEmprunte());
 		assertEquals(1, audiotest.getNbEmprunts());
 		assertEquals(1, audiotestbis.getNbEmprunts());
-		assertEquals(3, Audio.getStat());
+		assertEquals(2, Audio.getStat());
 		
 	}
 	
@@ -149,15 +146,6 @@ public class AudioTest extends TestCase{
 	}
 	
 	@Test
-	public void testInvariant() throws OperationImpossible, InvariantBroken{
-		audiotest.metEmpruntable();
-		assertEquals(true, audiotest.estEmpruntable());
-		audiotest.emprunter();
-		assertEquals(true, audiotest.estEmprunte());
-		
-		}
-	
-	@Test
 	public void testEquals(){
 		Object objNotNull = new Object();
 		Object objNull = null;
@@ -165,6 +153,46 @@ public class AudioTest extends TestCase{
 		objNotNull = (Audio) audiotest;
 		assertTrue(audiotest.equals(objNotNull));
 	}
+
+	@Test
+	public void testGetClassification(){
+		assertEquals("blabla", audiotest.getClassification());
+	}
+
+	@Test
+	public void testDureeEmprunt(){
+		assertEquals(4*7, audiotest.dureeEmprunt());
+	}
+
+	@Test
+	public void testTarifEmprunt(){
+		assertEquals(1.0, audiotest.tarifEmprunt());
+	}
+
+	@Test
+    public void testGetAnnee(){
+        assertEquals("blabla", audiotest.getAnnee());
+    }
+
+    @Test
+    public void testGetGenre(){
+        assertEquals(new Genre("test"), audiotest.getGenre());
+    }
+
+    @Test
+    public void testGetAuteur(){
+        assertEquals("blabla", audiotest.getAuteur());
+    }
+
+    @Test
+    public void testGetCode(){
+        assertEquals("blabla", audiotest.getCode());
+    }
+
+
+
+
+
 	
 
 

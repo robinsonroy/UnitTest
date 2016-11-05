@@ -2,7 +2,6 @@ package mediathequeTest;
 
 import static org.junit.Assert.*;
 
-import com.sun.tools.javac.jvm.Gen;
 import mediatheque.Genre;
 import org.junit.Before;
 import org.junit.Test;
