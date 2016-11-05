@@ -60,7 +60,10 @@ public class LocalisationTest {
 
     @Test
     public void testHashCode() {
-        fail("Not Yet Implemented");
+
+        assertEquals(localisation.hashCode(), localisation.hashCode());
+        Localisation loc2 = new Localisation("salle1", "rayon1");
+        assertNotEquals(localisation.hashCode(), loc2.hashCode());
     }
 
     @Test
@@ -100,7 +103,7 @@ public class LocalisationTest {
         assertFalse(loc2.equals(localisation));
 
         loc2.setSalle("salleTest");
-        assertFalse(loc2.equals(localisation));
+        assertTrue(loc2.equals(localisation));
 
         // if 2 object have salle and rayon null
         loc2.setSalle(null);

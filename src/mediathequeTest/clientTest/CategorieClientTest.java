@@ -7,6 +7,7 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertEquals;
 //import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertNull;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
@@ -119,7 +120,9 @@ public class CategorieClientTest {
 
     @Test
     public void testHashCode() throws Exception {
-
+        assertEquals(categorieClient.hashCode(), categorieClient.hashCode());
+        CategorieClient c1 = new CategorieClient("Normal");
+        assertNotEquals(categorieClient.hashCode(), c1.hashCode());
     }
 
     @Test

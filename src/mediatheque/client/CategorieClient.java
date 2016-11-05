@@ -22,7 +22,7 @@ public class CategorieClient implements Serializable {
         /**
          * Coefficient applique a la duree du document pour les abonnes
          */
-        double coefDuree;
+        private double coefDuree;
         /**
          * Coefficient appliquable au tarif du document
          */
