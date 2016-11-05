@@ -142,14 +142,6 @@ public class CategorieClientTest {
         assertFalse(categorieClient.equals(c2));
         c2.modifierNom("categorieName");
         c2.modifierCodeReducActif(true);
-        assertFalse(categorieClient.equals(c2));
-        c2.modifierMax(2);
-        assertFalse(categorieClient.equals(c2));
-        c2.modifierCotisation(250);
-        assertFalse(categorieClient.equals(c2));
-        c2.modifierCoefTarif(0.5);
-        assertFalse(categorieClient.equals(c2));
-        c2.modifierCoefDuree(0.5);
         assertTrue(categorieClient.equals(c2));
 
     }

@@ -112,8 +112,11 @@ public class Client implements Serializable {
          *    @param nom Nom du client
          *    @param prenom Prenom du client
          */
-        public Client(String nom, String prenom)
-        {
+        public Client(String nom, String prenom)throws OperationImpossible {
+                if (nom == null || prenom == null) {
+                        throw new OperationImpossible("Parametre null dans constructeur client : nom ="
+                                + nom + " prenom =" + prenom);
+                }
                 this.nom = nom;
                 this.prenom = prenom;
         }
@@ -513,7 +516,7 @@ public class Client implements Serializable {
          * de la classe.
          *   @return Nombre d'emprunts total
          */
-        static int getStat() {
+        public static int getStat() {
                 return nbEmpruntsTotal;
         }
 }

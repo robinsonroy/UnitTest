@@ -45,7 +45,7 @@ public class ClientTest {
     private Client c1;
     private Client c2;
 
-    public ClientTest(String nom, String prenom, String adresse, CategorieClient catClient, int codeReduction, int nbWeekBorrowingAuthorize, Date dateRetour){
+    public ClientTest(String nom, String prenom, String adresse, CategorieClient catClient, int codeReduction, int nbWeekBorrowingAuthorize, Date dateRetour) throws OperationImpossible{
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
@@ -100,14 +100,11 @@ public class ClientTest {
     @Test
     public void testGetPrenom() {
         assertEquals(prenom, c1.getPrenom());
-
     }
 
     @Test
     public void testGetAdresse() {
         assertEquals(adresse, c1.getAdresse());
-
-
     }
 
     @Test
@@ -358,6 +355,17 @@ public class ClientTest {
         assertEquals(5, c1.getReduc());
         c1.setReduc(0);
         assertEquals(0, c1.getReduc());
+    }
+
+    @Test
+    public void TestGetnbEmpruntsTotal() {
+        c1.emprunter();
+        assertNotEquals(0, Client.getnbEmpruntsTotal());
+    }
+
+    public void testGetStat() {
+        c1.emprunter();
+        assertNotEquals(0, Client.getStat());
     }
 
 }
