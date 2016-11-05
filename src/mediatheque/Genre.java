@@ -98,7 +98,6 @@ public class Genre implements Serializable{
                 }
                 return true;
         }
-
         /**
          * <TT>afficherStatistiques</TT> affiche les statistiques d'emprunt
          * du genre

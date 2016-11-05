@@ -63,7 +63,7 @@ public class LettreRappel implements Serializable{
          * <TT>relancer</TT> renouvelle le rappel 
          * (affiche de nouveau la lettre de rappel)
          */
-        void relancer() {
+        public void relancer() {
                 dateRappel = Datutil.dateDuJour();
                 System.out.println(debut());
                 System.out.println("Rappel : ");

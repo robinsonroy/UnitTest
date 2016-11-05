@@ -17,7 +17,9 @@ public class GenreTest {
 
 	@Test
 	public void testHashCode() {
-		fail("Not yet implemented");
+        assertEquals(genre.hashCode(), genre.hashCode());
+        Genre genre1 = new Genre("Roman");
+        assertNotEquals(genre.hashCode(), genre1.hashCode());
 	}
 
 	@Test
