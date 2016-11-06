@@ -95,7 +95,7 @@ public final class Mediatheque implements Serializable {
                         System.out.println("\t" + nom);
                 }
                 Genre g = chercherGenre(nom);
-                if (g != null) {
+                if (g == null) {
                         throw new OperationImpossible("Genre " + nom + " inexistant");
                 } else {
                         if (existeDocument(g)) {
@@ -131,7 +131,7 @@ public final class Mediatheque implements Serializable {
          */
         public void modifierGenre(String old, String neuf) throws OperationImpossible {
                 Genre g = chercherGenre(old);
-                if (g != null) {
+                if (g == null) {
                         throw new OperationImpossible("Genre \""
                                         + old + "\" inexistant");
                 } else {
@@ -173,7 +173,7 @@ public final class Mediatheque implements Serializable {
                         System.out.println("Mediatheque: suppression d'une localisation.");
                         System.out.println("\t" + salle + "\t" + rayon);
                 }
-                Localisation l = chercherLocalisation(rayon, salle);
+                Localisation l = chercherLocalisation(salle, rayon);
                 if (l == null){
                         throw new OperationImpossible("Localisation " + salle + " " +
                                         rayon + " inexistant");
@@ -275,7 +275,7 @@ public final class Mediatheque implements Serializable {
                 CategorieClient searched = new CategorieClient(catName);
                 int index = lesCatsClient.indexOf(searched);
                 if (index >= 0) {
-                        return lesCatsClient.elementAt(index+1);
+                        return lesCatsClient.elementAt(index);
                 } else {
                         return null;
                 }
@@ -290,17 +290,17 @@ public final class Mediatheque implements Serializable {
         public void supprimerCatClient(String catName) throws OperationImpossible {
                 if(debug){
                         System.out.println("Mediatheque: suppression d'une categorie.");
-                        System.out.println("\t" + nom);
+                        System.out.println("\t" + catName);
                 }
                 CategorieClient c = chercherCatClient(catName);
                 if (c == null) {
-                        throw new OperationImpossible("Categorie " + nom + " inexistante");
+                        throw new OperationImpossible("Categorie " + catName + " inexistante");
                 } else {
                         if (existeClient(c)) {
-                                throw new OperationImpossible("Il existe un client dans la categorie " + nom);
+                                throw new OperationImpossible("Il existe un client dans la categorie " + catName);
                         }
                         lesCatsClient.removeElement(c);
-                        System.out.println("Mediatheque: Categorie \"" + nom + "\" retire");
+                        System.out.println("Mediatheque: Categorie \"" + catName + "\" retire");
                 }
         }
 
@@ -790,7 +790,7 @@ public final class Mediatheque implements Serializable {
                 HashClient newHash, oldHash = new HashClient(client.getNom(), client.getPrenom());
                 boolean needNewHash = false;
                 if (!lesClients.containsKey(oldHash)) {
-                        throw new OperationImpossible("Client " + nom + " " + prenom
+                        throw new OperationImpossible("Client " + client.getNom() + " " + client.getPrenom()
                                         + " inexistant");
                 }
                 if (!adresse.equals(client.getAdresse())) {
@@ -928,10 +928,6 @@ public final class Mediatheque implements Serializable {
 
         public int getClientsSize() {
                 return lesClients.size();
-        }
-
-        public Client findClient(String nom, String prenom) {
-                return chercherClient(nom, prenom);
         }
 
         //Affichage du contenu des vecteurs
