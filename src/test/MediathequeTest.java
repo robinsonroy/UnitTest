@@ -3,6 +3,7 @@ package test;
 import mediatheque.FicheEmprunt;
 import mediatheque.Genre;
 import mediatheque.Localisation;
+import mediatheque.Mediatheque;
 import mediatheque.client.CategorieClient;
 import mediatheque.client.Client;
 import mediatheque.client.HashClient;
@@ -31,8 +32,11 @@ public class MediathequeTest {
     private Hashtable<HashClient,Client> lesClients;
     private Vector<FicheEmprunt> lesEmprunts;
 
+    private Mediatheque m;
+
     @Before
     public void setUp(){
+        m = new Mediatheque("MediaTest");
 
     }
 
