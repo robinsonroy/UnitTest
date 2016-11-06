@@ -98,6 +98,27 @@ public class VideoTest {
         catch (InvariantBroken e) {}
     }
 
+    @Test
+    public void testRestituer(){
+        try{
+            this.videotest.restituer();
+            fail("Resituer mais non empruntable");
+        } catch (OperationImpossible e) {}
+        catch (InvariantBroken e) {}
+        try{
+            this.videotest.metEmpruntable();
+            this.videotest.restituer();
+            fail("Restituer et non emprunter");
+        } catch (OperationImpossible e){}
+        catch (InvariantBroken e) {}
+        try{
+            this.videotest.emprunter();
+            this.videotest.restituer();
+        } catch (OperationImpossible e) {}
+        catch (InvariantBroken e) {}
+
+    }
+
 
 
 }
