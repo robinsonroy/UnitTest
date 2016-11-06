@@ -36,11 +36,8 @@ public class LivreTest {
 
 
     //Problème ne retourne pas l'exception car considere toujours l'integer positif
-<<<<<<< HEAD
-    @Test//(expected=OperationImpossible.class)
-=======
+
     @Test
->>>>>>> 103712c11d3c6178ab02cc26e4a9c3276f9dc7be
     public void testNegativePages() {
            try {
             Livre livrefail = new Livre("codeTest", new Localisation("l1", "l2"), "titreTest", "auteurTest", "anneTest", new Genre("genreTest"), -40);
