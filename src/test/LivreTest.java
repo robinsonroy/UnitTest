@@ -36,15 +36,17 @@ public class LivreTest {
 
 
     //Problème ne retourne pas l'exception car considere toujours l'integer positif
+<<<<<<< HEAD
     @Test//(expected=OperationImpossible.class)
+=======
+    @Test
+>>>>>>> 103712c11d3c6178ab02cc26e4a9c3276f9dc7be
     public void testNegativePages() {
            try {
             Livre livrefail = new Livre("codeTest", new Localisation("l1", "l2"), "titreTest", "auteurTest", "anneTest", new Genre("genreTest"), -40);
             fail("Book without pages created");
         } catch (OperationImpossible e) {}
         catch (InvariantBroken e) {}
-
-
     }
 
     @Test
@@ -68,8 +70,12 @@ public class LivreTest {
     }
 
     @Test
-    public void testGetGenre(){
-        assertEquals(new Genre("genreTest"), livretest.getGenre());
+    public void testGetGenre() throws OperationImpossible, InvariantBroken {
+        Livre l = new Livre("8132", new Localisation("2","5"), "Les Fourmis", "Bernad Werber", "2013", new Genre("genreTest"), 731);
+        l.metEmpruntable();
+        l.emprunter();
+
+        assertEquals(l.getGenre(), livretest.getGenre());
     }
 
     @Test
@@ -97,7 +103,8 @@ public class LivreTest {
     /***
      * Ne fonctionne pas
      */
-    @Test//(expected=OperationImpossible.class)
+
+    @Test
     public void testEmpruntImpossible(){
         try{
            livretest.emprunter();
@@ -116,4 +123,6 @@ public class LivreTest {
 
 
 
+=======
+>>>>>>> 103712c11d3c6178ab02cc26e4a9c3276f9dc7be
 }

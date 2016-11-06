@@ -265,7 +265,7 @@ public abstract class Document implements Empruntable, Serializable, HasInvarian
                 if (!invariant()) {
                         throw new InvariantBroken("Document -" + this);
                 }
-                System.out.println("Document: ranger \"" + titre + "\" en "
+                System.out.println("Document: \"" + titre + "\" ranger en "
                                 + localisation);
         }
 

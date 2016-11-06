@@ -189,7 +189,7 @@ public class Client implements Serializable {
          * @return nombre d'emprunts en retard
          */
         public int getNbEmpruntsEnRetard() {
-                return 0;
+                return nbEmpruntsDepasses;
         }
 
         /**
