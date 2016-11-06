@@ -118,6 +118,10 @@ public class VideoTest {
         catch (InvariantBroken e) {}
 
     }
+    @Test
+    public void testToString(){
+        assertEquals(String.class, videotest.toString().getClass());
+    }
 
 
 

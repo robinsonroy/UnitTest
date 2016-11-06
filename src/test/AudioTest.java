@@ -2,6 +2,8 @@ package test;
 
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
 import junit.framework.*;
 
 import org.junit.After;
@@ -188,6 +190,11 @@ public class AudioTest extends TestCase{
     public void testGetCode(){
         assertEquals("blabla", audiotest.getCode());
     }
+
+    @Test
+	public void testToString(){
+		assertEquals(String.class, audiotest.toString().getClass());
+	}
 
 
 

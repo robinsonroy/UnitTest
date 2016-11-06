@@ -1,4 +1,4 @@
-package mediathequeTest;
+package test;
 
 import mediatheque.Localisation;
 import org.junit.After;

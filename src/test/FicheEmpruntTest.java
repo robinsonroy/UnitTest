@@ -1,4 +1,4 @@
-package mediathequeTest;
+package test;
 
 import mediatheque.*;
 import mediatheque.client.CategorieClient;
