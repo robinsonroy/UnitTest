@@ -1,4 +1,4 @@
-package mediathequeTest.clientTest;
+package test;
 
 import mediatheque.client.CategorieClient;
 import org.junit.Before;

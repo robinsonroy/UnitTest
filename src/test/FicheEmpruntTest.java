@@ -1,4 +1,4 @@
-package mediathequeTest;
+package test;
 
 import com.sun.source.tree.AssertTree;
 import mediatheque.*;

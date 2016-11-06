@@ -112,5 +112,10 @@ public class LivreTest {
     public void restituer(){
         
     }
+
+    @Test
+    public void testToString(){
+        assertEquals(String.class, livretest.toString().getClass());
+    }
     
 }
