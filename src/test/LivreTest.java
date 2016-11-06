@@ -112,14 +112,5 @@ public class LivreTest {
     public void restituer(){
         
     }
-
-
-
-
-
-
-
-
-=======
->>>>>>> 103712c11d3c6178ab02cc26e4a9c3276f9dc7be
+    
 }
