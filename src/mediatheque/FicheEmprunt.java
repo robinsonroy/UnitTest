@@ -61,6 +61,7 @@ public class FicheEmprunt implements Serializable {
                 mediatheque = m;
                 client = c;
                 document = d;
+
                 dateEmprunt = Datutil.dateDuJour();
                 int duree = document.dureeEmprunt();
                 dateLimite = client.dateRetour(dateEmprunt, duree);
@@ -163,7 +164,7 @@ public class FicheEmprunt implements Serializable {
         }
 
         public int getDureeEmprunt(){
-                return (int) ((dateLimite.getTime () - dateEmprunt.getTime ()) / (1000 * 60 * 60 * 24));
+                return (int) ((dateLimite.getTime () - dateEmprunt.getTime ()) / (1000 * 60 * 60 * 24) + 1);
         }
 
         public double getTarifEmprunt(){ 

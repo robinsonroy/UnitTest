@@ -123,6 +123,6 @@ public final class Video extends Document {
          *  @return if document in safe state(i.e.dureeFilm > 0)
          */
         public boolean invariantVideo() {
-                return dureeFilm < 0 && super.invariant();
+                return dureeFilm > 0 && super.invariant();
         }
 }

@@ -46,6 +46,7 @@ public class ClientTest {
     private Client c2;
 
     public ClientTest(String nom, String prenom, String adresse, CategorieClient catClient, int codeReduction, int nbWeekBorrowingAuthorize, Date dateRetour) throws OperationImpossible{
+        //System.out.println(nom);
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
