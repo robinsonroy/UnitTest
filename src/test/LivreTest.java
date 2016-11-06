@@ -117,5 +117,4 @@ public class LivreTest {
     public void testToString(){
         assertEquals(String.class, livretest.toString().getClass());
     }
-    
 }
