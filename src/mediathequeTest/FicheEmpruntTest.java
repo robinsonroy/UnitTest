@@ -1,6 +1,5 @@
 package mediathequeTest;
 
-import com.sun.source.tree.AssertTree;
 import mediatheque.*;
 import mediatheque.client.CategorieClient;
 import mediatheque.client.Client;
