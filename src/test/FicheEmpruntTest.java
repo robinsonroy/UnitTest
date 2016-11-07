@@ -125,11 +125,6 @@ public class FicheEmpruntTest {
         fichEmprunt.restituer();
         assertEquals(0, client.getNbEmpruntsEnCours());
         assertFalse(document.estEmprunte());
-
-        /*
-         * Tester lever d'exception
-         */
-
     }
 
     @Test

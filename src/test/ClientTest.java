@@ -11,6 +11,7 @@ import org.junit.runners.Parameterized;
 import java.io.IOException;
 import java.text.DateFormat;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
@@ -257,17 +258,21 @@ public class ClientTest {
         cal.add(Calendar.DATE, -1);
         Date nextYear = cal.getTime();
 
-        String dateCotisationExpected = DateFormat.getTimeInstance().format(nextYear);
-        String dateCotisationActual = DateFormat.getTimeInstance().format(c1.getDateCotisation());
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+        String dateCotisationExpected = format.format(nextYear);
+        String dateCotisationActual = format.format(c1.getDateCotisation());
 
         assertEquals(dateCotisationExpected, dateCotisationActual);
     }
 
     @Test
     public void getDateInscription() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
         Calendar cal = Calendar.getInstance();
-        String dateInscriptionExpected = DateFormat.getTimeInstance().format(cal.getTime());
-        String dateInscriptionActual = DateFormat.getTimeInstance().format(c1.getDateInscription());
+        String dateInscriptionExpected = format.format(cal.getTime());
+        String dateInscriptionActual = format.format(c1.getDateInscription());
 
         assertEquals(dateInscriptionExpected, dateInscriptionActual);
     }
